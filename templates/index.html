@@ -33,21 +33,36 @@
             text-align: center;
             font-size: 2.8em;
             color: #34495e;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
             letter-spacing: 1px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 1.2em;
+            color: #3498db;
+            margin-bottom: 30px;
         }
 
         /* Form Group Styling */
         .form-group {
-            margin-bottom: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 15px;
         }
 
-        label {
+        .form-group label {
             display: block;
+            margin-bottom: 5px;
             font-size: 1.1em;
             color: #34495e;
             font-weight: 600;
-            margin-bottom: 8px;
+        }
+
+        .form-group div {
+            flex: 1;
+            min-width: 48%;
         }
 
         input, select {
@@ -58,6 +73,7 @@
             border-radius: 8px;
             background-color: #f7f7f7;
             transition: box-shadow 0.3s ease, border-color 0.3s ease;
+            box-sizing: border-box;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
         }
 
@@ -104,72 +120,119 @@
 <body>
     <div class="container">
         <h1>Car Price Prediction</h1>
+        <h2>Predict the price of your car with ease!</h2>
         <form action="/predict" method="POST">
             <div class="form-group">
-                <label for="name">Car Name:</label>
-                <input type="text" id="name" name="name" placeholder="Enter car model" required>
+                <div>
+                    <label for="name">Car Name:</label>
+                    <select id="name" name="name" required>
+                        <option value="" disabled selected>Select car model</option>
+            <option value="Maruti">Maruti</option>
+            <option value="Skoda">Skoda</option>
+            <option value="Honda">Honda</option>
+            <option value="Hyundai">Hyundai</option>
+            <option value="Toyota">Toyota</option>
+            <option value="Ford">Ford</option>
+            <option value="Renault">Renault</option>
+            <option value="Mahindra">Mahindra</option>
+            <option value="Tata">Tata</option>
+            <option value="Chevrolet">Chevrolet</option>
+            <option value="Fiat">Fiat</option>
+            <option value="Datsun">Datsun</option>
+            <option value="Jeep">Jeep</option>
+            <option value="Mercedes-Benz">Mercedes-Benz</option>
+            <option value="Mitsubishi">Mitsubishi</option>
+            <option value="Audi">Audi</option>
+            <option value="Volkswagen">Volkswagen</option>
+            <option value="BMW">BMW</option>
+            <option value="Nissan">Nissan</option>
+            <option value="Lexus">Lexus</option>
+            <option value="Jaguar">Jaguar</option>
+            <option value="Land">Land Rover</option>
+            <option value="MG">MG</option>
+            <option value="Volvo">Volvo</option>
+            <option value="Daewoo">Daewoo</option>
+            <option value="Kia">Kia</option>
+            <option value="Force">Force</option>
+            <option value="Ambassador">Ambassador</option>
+            <option value="Ashok">Ashok Leyland</option>
+            <option value="Isuzu">Isuzu</option>
+            <option value="Opel">Opel</option>
+            <option value="Peugeot">Peugeot</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="year">Year:</label>
+                    <input type="number" id="year" name="year" placeholder="Enter manufacturing year" min="1900" max="2024" required>
+                </div>
             </div>
             <div class="form-group">
-                <label for="year">Year:</label>
-                <input type="number" id="year" name="year" placeholder="Enter manufacturing year" min="1900" max="2024" required>
+                <div>
+                    <label for="km_driven">Kilometers Driven:</label>
+                    <input type="number" id="km_driven" name="km_driven" placeholder="Total km driven" min="0" required>
+                </div>
+                <div>
+                    <label for="fuel">Fuel Type:</label>
+                    <select id="fuel" name="fuel" required>
+                        <option value="" disabled selected>Select fuel type</option>
+                        <option value="Diesel">Diesel</option>
+                        <option value="Petrol">Petrol</option>
+                        <option value="LPG">LPG</option>
+                        <option value="CNG">CNG</option>
+                    </select>
+                </div>
             </div>
             <div class="form-group">
-                <label for="km_driven">Kilometers Driven:</label>
-                <input type="number" id="km_driven" name="km_driven" placeholder="Total km driven" min="0" required>
+                <div>
+                    <label for="seller_type">Seller Type:</label>
+                    <select id="seller_type" name="seller_type" required>
+                        <option value="" disabled selected>Select seller type</option>
+                        <option value="Individual">Individual</option>
+                        <option value="Dealer">Dealer</option>
+                        <option value="Trustmark Dealer">Trustmark Dealer</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="transmission">Transmission:</label>
+                    <select id="transmission" name="transmission" required>
+                        <option value="" disabled selected>Select transmission type</option>
+                        <option value="Manual">Manual</option>
+                        <option value="Automatic">Automatic</option>
+                    </select>
+                </div>
             </div>
             <div class="form-group">
-                <label for="fuel">Fuel Type:</label>
-                <select id="fuel" name="fuel" required>
-                    <option value="" disabled selected>Select fuel type</option>
-                    <option value="Diesel">Diesel</option>
-                    <option value="Petrol">Petrol</option>
-                    <option value="LPG">LPG</option>
-                    <option value="CNG">CNG</option>
-                </select>
+                <div>
+                    <label for="owner">Owner Type:</label>
+                    <select id="owner" name="owner" required>
+                        <option value="" disabled selected>Select owner type</option>
+                        <option value="First Owner">First Owner</option>
+                        <option value="Second Owner">Second Owner</option>
+                        <option value="Third Owner">Third Owner</option>
+                        <option value="Fourth & Above Owner">Fourth & Above Owner</option>
+                        <option value="Test Drive Car">Test Drive Car</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="mileage">Mileage (km/ltr/kg):</label>
+                    <input type="number" step="any" id="mileage" name="mileage" placeholder="Fuel efficiency" min="0" required>
+                </div>
             </div>
             <div class="form-group">
-                <label for="seller_type">Seller Type:</label>
-                <select id="seller_type" name="seller_type" required>
-                    <option value="" disabled selected>Select seller type</option>
-                    <option value="Individual">Individual</option>
-                    <option value="Dealer">Dealer</option>
-                    <option value="Trustmark Dealer">Trustmark Dealer</option>
-                </select>
+                <div>
+                    <label for="engine">Engine (CC):</label>
+                    <input type="number" id="engine" name="engine" placeholder="Engine capacity in CC" min="0" required>
+                </div>
+                <div>
+                    <label for="max_power">Max Power (bhp):</label>
+                    <input type="number" step="any" id="max_power" name="max_power" placeholder="Max horsepower" min="0" required>
+                </div>
             </div>
             <div class="form-group">
-                <label for="transmission">Transmission:</label>
-                <select id="transmission" name="transmission" required>
-                    <option value="" disabled selected>Select transmission type</option>
-                    <option value="Manual">Manual</option>
-                    <option value="Automatic">Automatic</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="owner">Owner Type:</label>
-                <select id="owner" name="owner" required>
-                    <option value="" disabled selected>Select owner type</option>
-                    <option value="First Owner">First Owner</option>
-                    <option value="Second Owner">Second Owner</option>
-                    <option value="Third Owner">Third Owner</option>
-                    <option value="Fourth & Above Owner">Fourth & Above Owner</option>
-                    <option value="Test Drive Car">Test Drive Car</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="mileage">Mileage (km/ltr/kg):</label>
-                <input type="number" step="any" id="mileage" name="mileage" placeholder="Fuel efficiency" min="0" required>
-            </div>
-            <div class="form-group">
-                <label for="engine">Engine (CC):</label>
-                <input type="number" id="engine" name="engine" placeholder="Engine capacity in CC" min="0" required>
-            </div>
-            <div class="form-group">
-                <label for="max_power">Max Power (bhp):</label>
-                <input type="number" step="any" id="max_power" name="max_power" placeholder="Max horsepower" min="0" required>
-            </div>
-            <div class="form-group">
-                <label for="seats">Seats:</label>
-                <input type="number" id="seats" name="seats" placeholder="Number of seats" min="1" required>
+                <div>
+                    <label for="seats">Seats:</label>
+                    <input type="number" id="seats" name="seats" placeholder="Number of seats" min="1" required>
+                </div>
             </div>
             <button type="submit">Predict Price</button>
         </form>
