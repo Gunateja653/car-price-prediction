@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #e0eafc, #cfdef3);
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 80px auto;
+            padding: 40px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            animation: fadeIn 1s ease-in-out;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            color: #34495e;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+        }
+
+        a {
+            padding: 15px 30px;
+            background-color: #27ae60;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        a:hover {
+            background-color: #2ecc71;
+            transform: translateY(-2px);
+        }
+
+        a:active {
+            background-color: #239b56;
+            transform: translateY(1px);
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Car Price Prediction Result</h1>
+        <p>The predicted selling price of the car is: <strong>{{ prediction[0] }}</strong>₹</p>
+        <a href="/">Go Back</a>
+    </div>
+</body>
+</html>

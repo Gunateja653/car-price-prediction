@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Price Prediction</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #e0eafc, #cfdef3);
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 80px auto;
+            padding: 40px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            animation: fadeIn 1s ease-in-out;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.8em;
+            color: #34495e;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        /* Form Group Styling */
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-size: 1.1em;
+            color: #34495e;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            font-size: 1em;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f7f7f7;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        input:focus, select:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.2);
+        }
+
+        input::placeholder {
+            color: #bbb;
+        }
+
+        /* Button Styling */
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #27ae60;
+            color: #ffffff;
+            font-size: 1.2em;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: #2ecc71;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            background-color: #239b56;
+            transform: translateY(1px);
+        }
+
+        /* Custom Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Car Price Prediction</h1>
+        <form action="/predict" method="POST">
+            <div class="form-group">
+                <label for="name">Car Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter car model" required>
+            </div>
+            <div class="form-group">
+                <label for="year">Year:</label>
+                <input type="number" id="year" name="year" placeholder="Enter manufacturing year" min="1900" max="2024" required>
+            </div>
+            <div class="form-group">
+                <label for="km_driven">Kilometers Driven:</label>
+                <input type="number" id="km_driven" name="km_driven" placeholder="Total km driven" min="0" required>
+            </div>
+            <div class="form-group">
+                <label for="fuel">Fuel Type:</label>
+                <select id="fuel" name="fuel" required>
+                    <option value="" disabled selected>Select fuel type</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="Petrol">Petrol</option>
+                    <option value="LPG">LPG</option>
+                    <option value="CNG">CNG</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="seller_type">Seller Type:</label>
+                <select id="seller_type" name="seller_type" required>
+                    <option value="" disabled selected>Select seller type</option>
+                    <option value="Individual">Individual</option>
+                    <option value="Dealer">Dealer</option>
+                    <option value="Trustmark Dealer">Trustmark Dealer</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="transmission">Transmission:</label>
+                <select id="transmission" name="transmission" required>
+                    <option value="" disabled selected>Select transmission type</option>
+                    <option value="Manual">Manual</option>
+                    <option value="Automatic">Automatic</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="owner">Owner Type:</label>
+                <select id="owner" name="owner" required>
+                    <option value="" disabled selected>Select owner type</option>
+                    <option value="First Owner">First Owner</option>
+                    <option value="Second Owner">Second Owner</option>
+                    <option value="Third Owner">Third Owner</option>
+                    <option value="Fourth & Above Owner">Fourth & Above Owner</option>
+                    <option value="Test Drive Car">Test Drive Car</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="mileage">Mileage (km/ltr/kg):</label>
+                <input type="number" step="any" id="mileage" name="mileage" placeholder="Fuel efficiency" min="0" required>
+            </div>
+            <div class="form-group">
+                <label for="engine">Engine (CC):</label>
+                <input type="number" id="engine" name="engine" placeholder="Engine capacity in CC" min="0" required>
+            </div>
+            <div class="form-group">
+                <label for="max_power">Max Power (bhp):</label>
+                <input type="number" step="any" id="max_power" name="max_power" placeholder="Max horsepower" min="0" required>
+            </div>
+            <div class="form-group">
+                <label for="seats">Seats:</label>
+                <input type="number" id="seats" name="seats" placeholder="Number of seats" min="1" required>
+            </div>
+            <button type="submit">Predict Price</button>
+        </form>
+    </div>
+</body>
+</html>
